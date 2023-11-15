@@ -39,8 +39,8 @@ function clearInput() {
 	<input type="radio" name="calc" value="min">−
 	<input type="radio" name="calc" value="multi">＊
 	<input type="radio" name="calc" value="dev">÷&nbsp;<br>
-	<input type="text" name="calc1" id="inputField" autocomplete="off"><br>
-	<input type="text" name="calc2" id="inputField2" autocomplete="off">
+	<input type="text" name="calc1" autocomplete="off"><br>
+	<input type="text" name="calc2" autocomplete="off">
 	<button type="submit" name="action" value="calculation">=</button>
 <% 
    Integer result = (Integer)request.getAttribute("result");
