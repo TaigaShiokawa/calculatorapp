@@ -39,9 +39,9 @@ public class CalculationServlet extends HttpServlet {
 		} 
 		
 		request.setAttribute("result", result);
-	} else if("clear".equals(action)) {
+	} else if("clear".equals(action)) { //入力値クリアボタン
 		request.setAttribute("result", 0);
-	}else if("clearResult".equals(action)) {
+	}else if("clearResult".equals(action)) { //計算結果クリアボタン
         request.setAttribute("result", 0); 
     }
 		request.getRequestDispatcher("calc.jsp").forward(request, response);
