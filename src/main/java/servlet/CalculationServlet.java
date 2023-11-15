@@ -26,15 +26,23 @@ public class CalculationServlet extends HttpServlet {
 			int result = 0;
 			int num1 = Integer.parseInt(request.getParameter("calc1"));
 			int num2 = Integer.parseInt(request.getParameter("calc2"));
+			
+			String calcMulti = request.getParameter("calcMulti");
+            int num3 = calcMulti != null && "multi2".equals(calcMulti) ? 
+            		Integer.parseInt(request.getParameter("calc3")) : 1;
+            
 			String calc = request.getParameter("calc");
 			
 			if("add".equals(calc)) {
 				result = num1 + num2;
+				if("multi2".equals(calcMulti)) {
+                    result *= num3;
+                }
 			} else if("min".equals(calc)) {
 				result = num1 - num2;
-			}else if("multi".equals(calc)) {
+			} else if("multi".equals(calc)) {
 				result = num1 * num2;
-			}else if("dev".equals(calc)) {
+			} else if("dev".equals(calc)) {
 				result = num2 != 0 ? num1 / num2 : 0;
 			} 
 			

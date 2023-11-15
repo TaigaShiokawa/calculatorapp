@@ -43,7 +43,7 @@
 <h2>Calculator App</h2>
 <form action="calculation-servlet" method="post">
 	<label for="add">
-	<input type="radio" name="calc" id="add" value="add">+
+	<input type="radio" name="calc" id="add" value="add">＋
 	</label>
 	<label for="min">
 	<input type="radio" name="calc" id="min" value="min">−
@@ -52,10 +52,13 @@
 	<input type="radio" name="calc" id="multi" value="multi">＊
 	</label>
 	<label for="dev">
-	<input type="radio" name="calc" id="dev" value="dev">÷&nbsp;<br>
+	<input type="radio" name="calc" id="dev" value="dev"> ÷ &nbsp;<br>
 	</label>
 	<input type="text" name="calc1" autocomplete="off"><br>
-	<input type="text" name="calc2" autocomplete="off">
+	<input type="text" name="calc2" autocomplete="off"><br>
+	
+	<input type="radio" name="calcMulti" value="multi2">＊<br>
+    <input type="text" name="calc3" autocomplete="off"><br>
 <% 
    Integer result = (Integer)request.getAttribute("result");
    int res = (result != null) ? result.intValue() : 0;
