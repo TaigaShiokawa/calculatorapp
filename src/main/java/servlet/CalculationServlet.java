@@ -23,27 +23,25 @@ public class CalculationServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String action = request.getParameter("action");
 		if("calculation".equals(action)) {
-		int num1 = Integer.parseInt(request.getParameter("calc1"));
-		int num2 = Integer.parseInt(request.getParameter("calc2"));
-		String calc = request.getParameter("calc");
-		int result = 0;
-		
-		if("add".equals(calc)) {
-			result = num1 + num2;
-		} else if("min".equals(calc)) {
-			result = num1 - num2;
-		}else if("multi".equals(calc)) {
-			result = num1 * num2;
-		}else if("dev".equals(calc)) {
-			result = num2 != 0 ? num1 / num2 : 0;
-		} 
-		
-		request.setAttribute("result", result);
-	} else if("clear".equals(action)) { //入力値クリアボタン
-		request.setAttribute("result", 0);
-	}else if("clearResult".equals(action)) { //計算結果クリアボタン
-        request.setAttribute("result", 0); 
-    }
+			int result = 0;
+			int num1 = Integer.parseInt(request.getParameter("calc1"));
+			int num2 = Integer.parseInt(request.getParameter("calc2"));
+			String calc = request.getParameter("calc");
+			
+			if("add".equals(calc)) {
+				result = num1 + num2;
+			} else if("min".equals(calc)) {
+				result = num1 - num2;
+			}else if("multi".equals(calc)) {
+				result = num1 * num2;
+			}else if("dev".equals(calc)) {
+				result = num2 != 0 ? num1 / num2 : 0;
+			} 
+			
+			request.setAttribute("result", result);
+		} else if("clearResult".equals(action)) { //計算結果クリアボタン
+	        request.setAttribute("result", 0); 
+	    } 
 		request.getRequestDispatcher("calc.jsp").forward(request, response);
 	}
 }
