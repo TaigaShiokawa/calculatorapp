@@ -8,7 +8,6 @@
 var lastFocusedInput;
 
 window.onload = function() {
-    // すべてのテキスト入力フィールドにフォーカスイベントを追加
     var inputs = document.getElementsByTagName('input');
     for(var i = 0; i < inputs.length; i++) {
         if(inputs[i].type.toLowerCase() === 'text') {
@@ -47,13 +46,12 @@ function clearInput() {
    Integer result = (Integer)request.getAttribute("result");
    int res = (result != null) ? result.intValue() : 0;
 %>
-<!-- 計算結果を表示する部分にIDを追加 -->
-<div id="resultDisplay"><%= res %></div> <!-- 計算結果 -->
+<div id="resultDisplay"><%= res %></div> 
 
 <form action="calculation-servlet" method="post">
     <button type="submit" name="action" value="clearResult">Clear Result</button>
 </form>
-<!-- 数字ボタン -->
+
 <div><br>
 <button type="button" onclick="addToInput('0')">0</button>
 <button type="button" onclick="addToInput('1')">1</button>
