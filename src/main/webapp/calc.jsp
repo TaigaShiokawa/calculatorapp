@@ -5,14 +5,14 @@
 <meta charset="UTF-8">
 <title>Calculator App</title>
 <script>
-let lastFocusedInput;
+let lastFocusedInput; //入力フィールドの追跡変数
 /* フォーカスイベント */
 window.onload = function() {
-    let inputs = document.getElementsByTagName('input');
+    let inputs = document.getElementsByTagName('input'); 
     for(let i = 0; i < inputs.length; i++) {
-        if(inputs[i].type.toLowerCase() === 'text') {
+        if(inputs[i].type.toLowerCase() === 'text') { //inputタグのname属性がtextなものを追跡
             inputs[i].onfocus = function() {
-                lastFocusedInput = this;
+                lastFocusedInput = this; //inputタグを格納
             };
         }
     }
@@ -20,13 +20,13 @@ window.onload = function() {
 
 function addToInput(value) {
     if(lastFocusedInput != null) {
-        lastFocusedInput.value += value;
+        lastFocusedInput.value += value; //追跡(フォーカス)されたテキストフィールドに、valueに設定した値を入れる
     }
 }
 
 function clearInput() {
     if(lastFocusedInput != null) {
-        lastFocusedInput.value = '0';
+        lastFocusedInput.value = '0'; //追跡(フォーカス)されたテキストフィールドに0を設定(入力値クリア)
     }
 }
 </script>
@@ -34,7 +34,7 @@ function clearInput() {
 </head>
 <body>
 <h2>Calculator App</h2>
-<form action="calculation-servlet" method="post" id="calcForm">
+<form action="calculation-servlet" method="post">
 	<input type="radio" name="calc" value="add">+
 	<input type="radio" name="calc" value="min">−
 	<input type="radio" name="calc" value="multi">＊
